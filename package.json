@@ -1,0 +1,38 @@
+{
+  "name": "carousel",
+  "version": "0.0.0",
+  "description": "Carousel view.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sailjs/carousel.git"
+  },
+  "bugs": {
+    "url": "http://github.com/sailjs/carousel/issues"
+  },
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "carousel",
+  "devDependencies": {
+    "mocha-phantomjs": "1.x.x",
+    "mocha-cloud": "0.0.1",
+    "term-canvas": "0.0.5",
+    "mocha-cloud-grid-view": "0.0.1",
+    "express": "3.x.x"
+  },
+  "volo": {
+    "dependencies": {
+      "class": "github:anchorjs/class/master",
+      "render": "github:sailjs/render/master",
+      "view": "github:sailjs/view/master"
+    }
+  }
+}
