@@ -9,6 +9,7 @@ function(View, render, clazz) {
     options = options || {};
     Carousel.super_.call(this, el, options);
     this._listEl = this.el.find(options.listSelector || 'ul');
+    this._itemSel = options.itemSelector || 'li';
     this._items = [];
     this._i = 0;
     
@@ -21,6 +22,14 @@ function(View, render, clazz) {
       self._scrollto(self._i - 1, self._i);
       return false;
     });
+    
+    this._listEl.on('click', function(e) {
+      var iel = render.$(e.target).closest(self._itemSel);
+      self.emit('click', iel, iel.index());
+      iel.siblings().removeClass('active');
+      iel.addClass('active');
+      return false;
+    });
   }
   clazz.inherits(Carousel, View);
   
@@ -29,6 +38,12 @@ function(View, render, clazz) {
     this._listEl.append(el);
     return this;
   };
+  
+  Carousel.prototype.active = function(i) {
+    var iel = this._items[i];
+    iel.siblings().removeClass('active');
+    iel.addClass('active');
+  }
   
   Carousel.prototype._scrollto = function(i, pi) {
     this._i = i;
