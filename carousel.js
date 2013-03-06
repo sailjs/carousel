@@ -12,14 +12,15 @@ function(View, render, clazz) {
     this._itemSel = options.itemSelector || 'li';
     this._items = [];
     this._i = 0;
+    this._scrollBy = options.scrollBy || 1;
     
     var self = this;
     this.el.find('.next').on('click', function() {
-      self._scrollto(self._i + 1, self._i);
+      self._scrollto(self._i + self._scrollBy, self._i);
       return false;
     });
     this.el.find('.prev').on('click', function() {
-      self._scrollto(self._i - 1, self._i);
+      self._scrollto(self._i - self._scrollBy, self._i);
       return false;
     });
     
