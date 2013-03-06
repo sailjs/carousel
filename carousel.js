@@ -46,9 +46,9 @@ function(View, render, clazz) {
   }
   
   Carousel.prototype._scrollto = function(i, pi) {
+    if (i < 0 || i >= this._items.length) return;
+    
     this._i = i;
-    
-    
     var pos = toFloat(this._listEl.position()['left'])
       , adj = this._adjustment(i, pi);
   
