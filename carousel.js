@@ -34,9 +34,18 @@ function(View, render, clazz) {
   }
   clazz.inherits(Carousel, View);
   
-  Carousel.prototype.item = function(el) {
-    this._items.push(el);
-    this._listEl.append(el);
+  Carousel.prototype.item = function(el, i) {
+    if (i === undefined) {
+      this._items.push(el);
+      this._listEl.append(el);
+    } else {
+      this._items.splice(i, 0, el);
+      if (i == 0) {
+        this._listEl.prepend(el);
+      } else {
+        this._items[i - 1].after(el);
+      }
+    }
     return this;
   };
   
